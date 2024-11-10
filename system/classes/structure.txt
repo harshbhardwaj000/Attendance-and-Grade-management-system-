@@ -1,0 +1,18 @@
+src/
+│
+├── com/
+│   └── example/
+│       ├── model/               // Package for Model Classes
+│       │   ├── Student.java
+│       │   ├── Attendance.java
+│       │   └── Grade.java
+│       │
+│       ├── dao/                  // Package for DAO Classes
+│       │   ├── StudentDAO.java
+│       │   ├── AttendanceDAO.java
+│       │   └── GradeDAO.java
+│       │
+│       ├── util/                 // Utility classes (e.g., DBConnection)
+│       │   └── DBConnection.java
+│       │
+│       └── Main.java             // Main class for running the application
