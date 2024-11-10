@@ -1,0 +1,173 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4CAF50, #81C784); /* Background Gradient */
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    animation: fadeIn 1.5s ease-in; /* Animation for page load */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Header Styling */
+header {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    animation: slideDown 1s ease-out; /* Slide down animation for header */
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Main Section */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    animation: fadeIn 1.2s ease-in;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Form Styling */
+form {
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease; /* Border animation */
+}
+
+form input:focus, form select:focus {
+    border-color: #4CAF50; /* Green border on focus */
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Button animation */
+}
+
+form button:hover {
+    background-color: #45a049;
+    animation: buttonPulse 0.5s ease; /* Pulsing effect on hover */
+}
+
+/* Record Display Section */
+#attendanceRecords, #gradeRecords {
+    margin-top: 20px;
+}
+
+#attendanceRecords p, #gradeRecords p {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Footer Styling */
+footer {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent footer */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    form input, form select, form button {
+        font-size: 0.9rem;
+    }
+}
