@@ -1,0 +1,100 @@
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 13
+Server version: 8.0.39 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE attendance_grade_management;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE attendance_grade_management;
+Database changed
+mysql> CREATE TABLE students (
+    ->     student_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     first_name VARCHAR(50) NOT NULL,
+    ->     last_name VARCHAR(50) NOT NULL,
+    ->     enrollment_number VARCHAR(20) UNIQUE NOT NULL,
+    ->     email VARCHAR(100) UNIQUE NOT NULL,
+    ->     course VARCHAR(50),
+    ->     semester INT,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CREATE TABLE courses (
+    ->     course_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     course_name VARCHAR(100) NOT NULL,
+    ->     course_code VARCHAR(20) UNIQUE NOT NULL,
+    ->     credits INT,
+    ->     semester INT,
+    ->     instructor VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE attendance (
+    ->     attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     student_id INT NOT NULL,
+    ->     course_id INT NOT NULL,
+    ->     attendance_date DATE NOT NULL,
+    ->     status ENUM('Present', 'Absent', 'Late') NOT NULL,
+    ->     FOREIGN KEY (student_id) REFERENCES students(student_id),
+    ->     FOREIGN KEY (course_id) REFERENCES courses(course_id)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE grades (
+    ->     grade_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     student_id INT NOT NULL,
+    ->     course_id INT NOT NULL,
+    ->     assessment_type ENUM('Exam', 'Assignment', 'Project', 'Quiz') NOT NULL,
+    ->     grade CHAR(2) CHECK (grade IN ('A', 'B', 'C', 'D', 'F')),
+    ->     score DECIMAL(5, 2),
+    ->     comments VARCHAR(255),
+    ->     graded_date DATE,
+    ->     FOREIGN KEY (student_id) REFERENCES students(student_id),
+    ->     FOREIGN KEY (course_id) REFERENCES courses(course_id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> CREATE TABLE instructors (
+    ->     instructor_id INT PRIMARY KEY AUTO_INCREMENT,
+    ->     first_name VARCHAR(50) NOT NULL,
+    ->     last_name VARCHAR(50) NOT NULL,
+    ->     email VARCHAR(100) UNIQUE NOT NULL,
+    ->     department VARCHAR(50)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> ALTER TABLE courses
+    -> ADD COLUMN instructor_id INT,
+    -> ADD FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id);
+Query OK, 0 rows affected (0.10 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO students (first_name, last_name, enrollment_number, email, course, semester)
+    -> VALUES ('John', 'Doe', 'EN12345', 'john.doe@example.com', 'B.Tech CSE', 3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
+mysql> INSERT INTO courses (course_name, course_code, credits, semester, instructor)
+    -> VALUES ('Database Management Systems', 'CS203', 4, 3, 'Dr. Smith');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> INSERT INTO attendance (student_id, course_id, attendance_date, status)
+    -> VALUES (1, 1, '2024-11-10', 'Present');
+Query OK, 1 row affected (0.00 sec)
+
+mysql>
+mysql> INSERT INTO grades (student_id, course_id, grade, comments)
+    -> VALUES (1, 1, 'A', 'Excellent performance');
+Query OK, 1 row affected (0.01 sec)
+
+mysql>
