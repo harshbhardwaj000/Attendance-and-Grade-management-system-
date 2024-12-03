@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grant Attendance & Grades - Attendance & Grade Management System</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom CSS file -->
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="text-center">Grant Attendance & Manage Grades</h3>
+            </div>
+            <div class="card-body">
+                <!-- Search Student Section -->
+                <div class="mb-4">
+                    <h5>Search Student</h5>
+                    <form id="searchStudentForm" class="d-flex">
+                        <input type="text" class="form-control me-2" id="studentSearch" placeholder="Enter student name or ID">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+
+                <!-- Grant Attendance Section -->
+                <div class="mb-4">
+                    <h5>Grant Attendance</h5>
+                    <form id="grantAttendanceForm">
+                        <div class="mb-3">
+                            <label for="studentID" class="form-label">Student ID</label>
+                            <input type="text" class="form-control" id="studentID" placeholder="Enter Student ID">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="Enter Subject Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="classesAttended" class="form-label">Classes Attended</label>
+                            <input type="number" class="form-control" id="classesAttended" placeholder="Enter number of classes attended">
+                        </div>
+                        <button type="submit" class="btn btn-success">Grant Attendance</button>
+                    </form>
+                </div>
+
+                <!-- Manage Grades Section -->
+                <div>
+                    <h5>Manage Grades</h5>
+                    <form id="manageGradesForm">
+                        <div class="mb-3">
+                            <label for="studentIDGrade" class="form-label">Student ID</label>
+                            <input type="text" class="form-control" id="studentIDGrade" placeholder="Enter Student ID">
+                        </div>
+                        <div class="mb-3">
+                            <label for="subjectGrade" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subjectGrade" placeholder="Enter Subject Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="grade" class="form-label">Grade</label>
+                            <input type="text" class="form-control" id="grade" placeholder="Enter Grade (e.g., A, B+, etc.)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="remarks" class="form-label">Remarks</label>
+                            <textarea class="form-control" id="remarks" rows="3" placeholder="Enter Remarks"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Update Grade</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
