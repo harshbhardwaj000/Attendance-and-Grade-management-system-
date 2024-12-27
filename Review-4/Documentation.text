@@ -1,0 +1,99 @@
+# Student Attendance & Grade Management System
+
+## Overview
+The Student Attendance & Grade Management System is a web-based Java application developed using Servlets, JSP, and a simulated database. The system manages student records, attendance, and grades, providing an easy interface for users to register, view profiles, and update information.
+
+## Key Features
+- **Student Registration**: Users can register their information using a form.
+- **Student Management**: View and add new students to the system.
+- **Attendance Tracking**: Record and display student attendance.
+- **Grade Management**: Store and manage student grades.
+- **User Profile**: View user profile data after registration.
+- **Unit Testing**: Basic unit tests to verify the functionality of key database operations.
+
+## Technologies Used
+- **Java**
+- **Servlets**
+- **JSP (Java Server Pages)**
+- **JUnit (Unit Testing)**
+- **HTML/CSS**
+
+## Project Structure
+```
+/student_mgmt_servlets
+│
+├── src
+│   ├── servlets
+│   │   ├── RegisterServlet.java
+│   │   ├── ProfileServlet.java
+│   │   ├── StudentServlet.java
+│   │   ├── AttendanceServlet.java
+│   │   └── GradeServlet.java
+│   ├── database
+│   │   └── Database.java
+│   └── tests
+│       └── DatabaseTest.java
+│
+├── webapp
+│   ├── register.jsp
+│   ├── profile.jsp
+│   ├── students.jsp
+│   ├── attendance.jsp
+│   └── grades.jsp
+│
+└── pom.xml
+```
+
+## Installation & Setup
+1. Clone the repository.
+2. Install Apache Tomcat (or any servlet container).
+3. Deploy the project to Tomcat's webapps directory.
+4. Access the application at `http://localhost:8080/student_mgmt_servlets`.
+
+## Usage
+1. **Register a User**:
+   - Navigate to `/register` to register a new user.
+   - Fill in the form and submit.
+2. **View Profile**:
+   - After registration, you will be redirected to the profile page.
+   - Access the profile directly at `/profile?email=[user_email]`.
+3. **Manage Students**:
+   - Go to `/students` to view or add new students.
+4. **Track Attendance**:
+   - Visit `/attendance` to view and update attendance records.
+5. **Update Grades**:
+   - Navigate to `/grades` to manage student grades.
+
+## JSP Pages
+- **register.jsp** - User registration form
+- **profile.jsp** - User profile page
+- **students.jsp** - Displays a list of students
+- **attendance.jsp** - Attendance records and update form
+- **grades.jsp** - Grade management page
+
+## Unit Tests
+Unit tests are implemented using JUnit to ensure core database operations function correctly. The test cases include:
+- Adding students
+- Recording attendance
+- Storing grades
+- Registering users
+
+Run tests using:
+```
+mvn test
+```
+
+## Security Considerations
+- Basic input validation is implemented.
+- Sensitive data such as emails can be encrypted or hashed for enhanced security.
+- Duplicate data entries are prevented through validation in Servlets.
+
+## Future Enhancements
+- Implement database integration (MySQL/PostgreSQL) for persistent data storage.
+- Add user authentication and role-based access.
+- Develop an admin panel for comprehensive data management.
+- Implement reporting and analytics features for student performance.
+
+## Conclusion
+The Student Attendance & Grade Management System is a foundational project demonstrating Java Servlet and JSP integration, with the potential for further scalability and enhancement.
+
